@@ -4,14 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
 
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 public class Material {
     @Id
     @Setter(AccessLevel.NONE)
@@ -24,8 +24,14 @@ public class Material {
     private Agenda agenda;
 
     @NotNull
-    private String description;
+    private String descricao;
 
     @NotNull
     private String caminhoArquivo;
+
+    public Material(Agenda agenda, String descricao, String caminhoArquivo) {
+        this.agenda = agenda;
+        this.descricao = descricao;
+        this.caminhoArquivo = caminhoArquivo;
+    }
 }
