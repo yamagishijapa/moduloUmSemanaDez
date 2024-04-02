@@ -23,10 +23,10 @@ public class AgendaService {
 
     @Autowired
     private AgendaRepository agendaRepository;
-    
+
     @Autowired
     private  AlunoRepository alunoRepository;
-    
+
     @Autowired
     private TutorRepository tutorRepository;
 
@@ -42,7 +42,7 @@ public class AgendaService {
         return agendaRepository.findAll();
     }
 
-    public List<Agenda> listarAgendaPorIdAluno(Long alunoId){
+    public List<Agenda> listarAgendasPorIdAluno(Long alunoId){
         if (!alunoRepository.existsById(alunoId)) {
             throw new NoSuchElementException("Aluno não encontrado com ID: " + alunoId);
         }
@@ -50,12 +50,28 @@ public class AgendaService {
         return agendaRepository.findByAluno_AlunoId(alunoId);
     }
 
-    public List<Agenda> listarAgendaPorIdTutor(Long tutorId){
+    public List<Agenda> listarProximasAgendasPorIdAluno(Long alunoId){
+        if (!alunoRepository.existsById(alunoId)) {
+            throw new NoSuchElementException("Aluno não encontrado com ID: " + alunoId);
+        }
+
+        return agendaRepository.findProximosAgendamentosAluno(alunoId);
+    }
+
+    public List<Agenda> listarAgendasPorIdTutor(Long tutorId){
         if (!tutorRepository.existsById(tutorId)) {
             throw new NoSuchElementException("Tutor não encontrado com ID: " + tutorId);
         }
 
         return agendaRepository.findByTutor_TutorId(tutorId);
+    }
+
+    public List<Agenda> listarProximasAgendasPorIdTutor(Long tutorId){
+        if (!tutorRepository.existsById(tutorId)) {
+            throw new NoSuchElementException("Tutor não encontrado com ID: " + tutorId);
+        }
+
+        return agendaRepository.findProximosAgendamentosTutor(tutorId);
     }
 
     public ResponseEntity<?> deletarAgenda(Long id) {

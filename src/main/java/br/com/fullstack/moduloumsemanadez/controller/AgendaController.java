@@ -47,12 +47,22 @@ public class AgendaController {
 
     @GetMapping("/aluno-id/{alunoId}")
     public List<Agenda> listarAgendaPorIdAluno(@PathVariable Long alunoId) {
-        return agendaService.listarAgendaPorIdAluno(alunoId);
+        return agendaService.listarAgendasPorIdAluno(alunoId);
+    }
+
+    @GetMapping("/aluno-id/{alunoId}/proximas")
+    public List<Agenda> listarProximasAgendasPorIdAluno(@PathVariable Long alunoId) {
+        return agendaService.listarProximasAgendasPorIdAluno(alunoId);
     }
 
     @GetMapping("/tutor-id/{tutorId}")
     public List<Agenda> listarAgendaPorIdTutor(@PathVariable Long tutorId) {
-        return agendaService.listarAgendaPorIdTutor(tutorId);
+        return agendaService.listarAgendasPorIdTutor(tutorId);
+    }
+
+    @GetMapping("/tutor-id/{tutorId}/proximas")
+    public List<Agenda> listarProximasAgendasPorIdTutor(@PathVariable Long tutorId) {
+        return agendaService.listarProximasAgendasPorIdTutor(tutorId);
     }
 
     @ExceptionHandler(InvalidFormatException.class)

@@ -25,4 +25,10 @@ public interface AgendaRepository extends JpaRepository<Agenda, Long> {
     @Query("SELECT a FROM Agenda a WHERE a.tutor.tutor_id = :tutorId")
     List<Agenda> findByTutor_TutorId(Long tutorId);
 
+    @Query("SELECT a FROM Agenda a WHERE a.aluno.aluno_id = :alunoId AND a.dataAgenda >= CURRENT_DATE ORDER BY a.dataAgenda ASC")
+    List<Agenda> findProximosAgendamentosAluno(Long alunoId);
+
+    @Query("SELECT a FROM Agenda a WHERE a.tutor.tutor_id = :tutorId AND a.dataAgenda >= CURRENT_DATE ORDER BY a.dataAgenda ASC")
+    List<Agenda> findProximosAgendamentosTutor(Long tutorId);
+
 }
