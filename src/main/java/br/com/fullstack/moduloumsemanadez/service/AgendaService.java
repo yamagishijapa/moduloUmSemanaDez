@@ -89,14 +89,14 @@ public class AgendaService {
         if (!alunoRepository.existsById(agendaRequest.getAlunoId())) {
             throw new NoSuchElementException("Aluno não encontrado com ID: " + agendaRequest.getAlunoId());
         }
-        Optional<Aluno> livro = alunoRepository.findById(agendaRequest.getAlunoId());
+        Optional<Aluno> aluno = alunoRepository.findById(agendaRequest.getAlunoId());
 
         if (!tutorRepository.existsById(agendaRequest.getTutorId())) {
             throw new NoSuchElementException("Tutor não encontrado com ID: " + agendaRequest.getTutorId());
         }
-        Optional<Tutor> membro = tutorRepository.findById(agendaRequest.getTutorId());
+        Optional<Tutor> tutor = tutorRepository.findById(agendaRequest.getTutorId());
 
-        return mapDtoToEntity(agendaRequest, livro.get(), membro.get());
+        return mapDtoToEntity(agendaRequest, aluno.get(), tutor.get());
     }
 
     private Agenda mapDtoToEntity(AgendaRequest agendaRequest, Aluno aluno, Tutor tutor){

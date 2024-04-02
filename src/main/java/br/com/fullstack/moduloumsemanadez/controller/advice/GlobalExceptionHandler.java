@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -36,6 +37,16 @@ public class GlobalExceptionHandler {
         }
         else
             errorMessage = ex.getMessage();
+        errors.add(new ValidationErrorDetails(campo, errorMessage));
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<List<ValidationErrorDetails>> handleHttpMessageNotReadableException(NoSuchElementException ex) {
+        List<ValidationErrorDetails> errors = new ArrayList<>();
+
+        String campo = "ID não encontrado";
+        String errorMessage = ex.getMessage();
         errors.add(new ValidationErrorDetails(campo, errorMessage));
         return ResponseEntity.badRequest().body(errors);
     }
