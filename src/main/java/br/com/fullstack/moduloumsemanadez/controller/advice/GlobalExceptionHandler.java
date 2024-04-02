@@ -1,6 +1,7 @@
 package br.com.fullstack.moduloumsemanadez.controller.advice;
 
 import br.com.fullstack.moduloumsemanadez.response.errorValidation.ValidationErrorDetails;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
@@ -48,7 +49,7 @@ public class GlobalExceptionHandler {
         String campo = "ID não encontrado";
         String errorMessage = ex.getMessage();
         errors.add(new ValidationErrorDetails(campo, errorMessage));
-        return ResponseEntity.badRequest().body(errors);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errors);
     }
 
 

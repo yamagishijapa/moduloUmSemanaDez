@@ -42,6 +42,22 @@ public class AgendaService {
         return agendaRepository.findAll();
     }
 
+    public List<Agenda> listarAgendaPorIdAluno(Long alunoId){
+        if (!alunoRepository.existsById(alunoId)) {
+            throw new NoSuchElementException("Aluno não encontrado com ID: " + alunoId);
+        }
+
+        return agendaRepository.findByAluno_AlunoId(alunoId);
+    }
+
+    public List<Agenda> listarAgendaPorIdTutor(Long tutorId){
+        if (!tutorRepository.existsById(tutorId)) {
+            throw new NoSuchElementException("Tutor não encontrado com ID: " + tutorId);
+        }
+
+        return agendaRepository.findByTutor_TutorId(tutorId);
+    }
+
     public ResponseEntity<?> deletarAgenda(Long id) {
         if(!agendaRepository.existsById(id)){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("O agenda com ID " + id + " não foi encontrado.");
