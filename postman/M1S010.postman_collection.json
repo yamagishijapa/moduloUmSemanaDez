@@ -1,0 +1,502 @@
+{
+	"info": {
+		"_postman_id": "5aea7fc0-ab71-4824-bbd9-23b6126e9317",
+		"name": "M1S010",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15909875"
+	},
+	"item": [
+		{
+			"name": "Aluno",
+			"item": [
+				{
+					"name": "Cria Aluno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"João\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/aluno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"aluno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Alunos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/aluno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"aluno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Aluno",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/aluno/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"aluno",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Aluno",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/aluno/5?nome=Thiago",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"aluno",
+								"5"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Thiago"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tutor",
+			"item": [
+				{
+					"name": "Cria Tutor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Thiago\",\r\n    \"especialidade\": \"BackEnd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tutor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tutor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Tutores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tutor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tutor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Tutor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tutor/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tutor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Tutor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tutor/2?especialidade=FrontEnd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tutor",
+								"2"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Teste",
+									"disabled": true
+								},
+								{
+									"key": "especialidade",
+									"value": "FrontEnd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agenda",
+			"item": [
+				{
+					"name": "Cria Agenda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alunoId\": 1,\r\n    \"tutorId\": 2,\r\n    \"dataAgenda\": \"2024-04-03\",\r\n    \"status\": 1,\r\n    \"tema\": \"Teste\",\r\n    \"descricao\": \"Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agenda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Agendas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Agendas Por Id  Aluno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda/aluno-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"aluno-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Próximas Agendas Por Id  Aluno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda/aluno-id/1/proximas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"aluno-id",
+								"1",
+								"proximas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Agendas Por Id Tutor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda/tutor-id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"tutor-id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Próximas Agendas Por Id Tutor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda/tutor-id/1/proximas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"tutor-id",
+								"1",
+								"proximas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Agenda",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Agenda",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda/1?status=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"1"
+							],
+							"query": [
+								{
+									"key": "dataAgenda",
+									"value": "2024-04-05",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Material",
+			"item": [
+				{
+					"name": "Cria Material",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"agendaId\": 2,\r\n    \"descricao\": \"Using Python for Research\",\r\n    \"caminhoArquivo\": \"https://pll.harvard.edu/course/using-python-research\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"material"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Materiais",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"material"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Material",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/material/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"material",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Agenda",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/material/5?descricao=Teste&caminhoArquivo=file://Users/thiag/Downloads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"material",
+								"5"
+							],
+							"query": [
+								{
+									"key": "descricao",
+									"value": "Teste"
+								},
+								{
+									"key": "caminhoArquivo",
+									"value": "file://Users/thiag/Downloads"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
