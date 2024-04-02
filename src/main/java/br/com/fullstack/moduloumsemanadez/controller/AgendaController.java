@@ -45,6 +45,16 @@ public class AgendaController {
         return agendaService.atualizarAgenda(agendaId, dataAgenda, status);
     }
 
+    @GetMapping("/aluno-id/{alunoId}")
+    public List<Agenda> listarAgendaPorIdAluno(@PathVariable Long alunoId) {
+        return agendaService.listarAgendaPorIdAluno(alunoId);
+    }
+
+    @GetMapping("/tutor-id/{tutorId}")
+    public List<Agenda> listarAgendaPorIdTutor(@PathVariable Long tutorId) {
+        return agendaService.listarAgendaPorIdTutor(tutorId);
+    }
+
     @ExceptionHandler(InvalidFormatException.class)
     public ResponseEntity<List<ValidationErrorDetails>> handleHttpMessageNotReadableException(InvalidFormatException ex) {
         List<ValidationErrorDetails> errors = new ArrayList<>();
